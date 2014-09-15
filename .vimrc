@@ -36,7 +36,8 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on
 
-
+" Trim training whitespace when saving a file
+autocmd BufWritePre * :%s/\s\+$//e
 
 syntax on
 filetype plugin indent on
