@@ -31,7 +31,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'darthdeus/vim-emblem'
 Plugin 'kien/ctrlp.vim'
-
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
