@@ -21,7 +21,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias be="bundle exec"
 alias m="be rake db:migrate && rake db:rollback && rake db:migrate"
-
+alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
