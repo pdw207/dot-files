@@ -39,6 +39,9 @@ filetype plugin indent on
 " Trim training whitespace when saving a file
 autocmd BufWritePre * :%s/\s\+$//e
 
+" default open nerdtree
+au VimEnter *  NERDTree
+
 syntax on
 filetype plugin indent on
 let mapleader = ","
@@ -99,7 +102,6 @@ set splitright
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%{fugitive#statusline()}
 set statusline+=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 " ---------------------------
@@ -123,7 +125,6 @@ match ErrorMsg '\s\+$'
 au BufRead,BufNewFile Vagrantfile,Berksfile,Gemfile,Hanfile setfiletype ruby
 
 " ----------------------------
-" For Eduardo
 inoremap jk <Esc>
 inoremap jK <Esc>
 
