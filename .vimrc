@@ -3,35 +3,38 @@ filetype off                   " required!
 
 " ---------------------------
 
+" let Vundle manage Plugins
+":PluginInstall to update plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
-" plugins
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-cucumber'
-Plugin 'iandoe/vim-osx-colorpicker'
+" directory view
 Plugin 'scrooloose/nerdtree'
+
+"key mappings
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-haml'
 Plugin 'mileszs/ack.vim'
+
+"color
 Plugin 'nanotech/jellybeans.vim'
+
+"syntax highlighting
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml'
+Plugin 'darthdeus/vim-emblem'
+Plugin 'nono/vim-handlebars'
+Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'groenewege/vim-less'
-Plugin 'nono/vim-handlebars'
-Plugin 'sjl/gundo.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'darthdeus/vim-emblem'
+
+"navigate files via ctrl + p
 Plugin 'kien/ctrlp.vim'
+
+"autocomplete
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()
 filetype plugin indent on
