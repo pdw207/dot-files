@@ -2,9 +2,8 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 " ---------------------------
-
 " let Vundle manage Plugins
-":PluginInstall to update plugins
+" :PluginInstall to update plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -12,15 +11,15 @@ Plugin 'gmarik/Vundle.vim'
 " directory view
 Plugin 'scrooloose/nerdtree'
 
-"key mappings
+" key mappings
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
 
-"color
+" color
 Plugin 'nanotech/jellybeans.vim'
 
-"syntax highlighting
+" syntax highlighting
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-haml'
 Plugin 'darthdeus/vim-emblem'
@@ -29,14 +28,15 @@ Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 
-"navigate files via ctrl + p
+" navigate files via ctrl + p
 Plugin 'kien/ctrlp.vim'
 
-"autocomplete
+" autocomplete
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 
 call vundle#end()
+" ---------------------------
 filetype plugin indent on
 
 " Trim training whitespace when saving a file
@@ -47,6 +47,8 @@ au VimEnter *  NERDTree
 
 syntax on
 filetype plugin indent on
+
+" general settings
 let mapleader = ","
 set wrap
 set number
@@ -64,32 +66,22 @@ set tabstop=2
 set wildmode=list:longest,list:full
 set complete=.,w,t
 
-" themes / colors
-"set term=xterm-256color
-set term=screen-256color
-set background=dark
 " colorscheme fine_blue
 colorscheme jellybeans
 
+" ctrlp config
+let g:ctrlp_custom_ignore = '\v[\/]\.?(tmp|node_modules|git|svn)'
 
-" Color picker plugin settting
- let g:colorpicker_app = 'iTerm.app'
- let g:cssColorVimDoNotMessMyUpdatetimei = 1
-" colorscheme macvim
-
-set guifont=Menlo:h16
-
-nnoremap <leader>sc :set spell!<CR>
-nnoremap <leader>hs :set hls!<CR>
-
-" statusline:
-set laststatus=2
+" Toggle spelling mode with ,s
+nnoremap <silent> <leader>s :set spell!<CR>
 
 " make splits more natural
 set splitbelow
 set splitright
 
-" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" statusline:
+set laststatus=2
+
 " format markers:
 "   %< truncation point
 "   %n buffer number
@@ -107,29 +99,15 @@ set splitright
 "   %) end of width specification
 set statusline+=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
-" ---------------------------
-" Backup
-
 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set backupskip=/tmp/*,/private/tmp/*
 
-
-" ----------------------------
 " File mutations
-
 match ErrorMsg '\s\+$'
 
-" ----------------------------
-" File types
-
-au BufRead,BufNewFile Vagrantfile,Berksfile,Gemfile,Hanfile setfiletype ruby
-
-" ----------------------------
+" dont map
 inoremap jk <Esc>
-inoremap jK <Esc>
 
-" ctrlp config
-let g:ctrlp_custom_ignore = '\v[\/]\.?(tmp|node_modules|git|svn)'
