@@ -22,6 +22,9 @@ fi
 alias be="bundle exec"
 alias m="be rake db:migrate && rake db:rollback && rake db:migrate"
 alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
+alias tree="find . -type d | sed -e 's/[^-][^\/]*\//  |/g' -e 's/|\([^ ]\)/|-\1/'"
+alias curlpretty="echo curl http://0.0.0.0:4200/$1 | python -m json.tool"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

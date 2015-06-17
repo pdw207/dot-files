@@ -27,6 +27,7 @@ Plugin 'nono/vim-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
+Plugin 'terryma/vim-multiple-cursors'
 
 " navigate files via ctrl + p
 Plugin 'kien/ctrlp.vim'
@@ -42,8 +43,6 @@ filetype plugin indent on
 " Trim training whitespace when saving a file
 autocmd BufWritePre * :%s/\s\+$//e
 
-" default open nerdtree
-au VimEnter *  NERDTree
 
 syntax on
 filetype plugin indent on
@@ -74,6 +73,9 @@ let g:ctrlp_custom_ignore = '\v[\/]\.?(tmp|node_modules|git|svn)'
 
 " Toggle spelling mode with ,s
 nnoremap <silent> <leader>s :set spell!<CR>
+
+" Toggle nerdtree
+nnoremap <silent> <leader>n :NERDTree<CR>
 
 " make splits more natural
 set splitbelow
