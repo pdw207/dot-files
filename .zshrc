@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="skaro"
 
 if [ -d "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
@@ -25,6 +25,9 @@ alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
 alias tree="find . -type d | sed -e 's/[^-][^\/]*\//  |/g' -e 's/|\([^ ]\)/|-\1/'"
 alias curlpretty="echo curl http://0.0.0.0:4200/$1 | python -m json.tool"
 
+function supersub {
+  ack -l "$1" "$3" | xargs perl -p -i -e "s/$1/$2/g"
+}
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

@@ -15,14 +15,19 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'Emmet.vim'
 
 " color
 Plugin 'nanotech/jellybeans.vim'
 
 " syntax highlighting
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-haml'
 Plugin 'darthdeus/vim-emblem'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'nono/vim-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
@@ -36,6 +41,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-endwise'
 
+"Git Blame
+Plugin 'vim-fugitive'
 call vundle#end()
 " ---------------------------
 filetype plugin indent on
@@ -60,6 +67,7 @@ set expandtab
 set smarttab
 set shiftwidth=2
 set tabstop=2
+set clipboard=unnamed
 
 " tab completion
 set wildmode=list:longest,list:full
@@ -69,7 +77,7 @@ set complete=.,w,t
 colorscheme jellybeans
 
 " ctrlp config
-let g:ctrlp_custom_ignore = '\v[\/]\.?(tmp|node_modules|git|svn)'
+let g:ctrlp_custom_ignore = '\v[\/]\.?(tmp|node_modules|bower|git|svn)'
 
 " Toggle spelling mode with ,s
 nnoremap <silent> <leader>s :set spell!<CR>
@@ -77,6 +85,13 @@ nnoremap <silent> <leader>s :set spell!<CR>
 " Toggle nerdtree
 nnoremap <silent> <leader>n :NERDTree<CR>
 
+"Allow ctr + c copy
+map <C-c> "+y<CR>
+
+" RSpec.vim mappings
+let g:rspec_runner = "os_x_iterm"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 " make splits more natural
 set splitbelow
 set splitright
@@ -112,4 +127,8 @@ match ErrorMsg '\s\+$'
 
 " dont map
 inoremap jk <Esc>
+
+
+"fix issue with syntax highlights in es6 file extentions
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
