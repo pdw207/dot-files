@@ -33,6 +33,7 @@ Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/syntastic'
 
 " navigate files via ctrl + p
 Plugin 'kien/ctrlp.vim'
