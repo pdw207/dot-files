@@ -132,4 +132,6 @@ inoremap jk <Esc>
 
 "fix issue with syntax highlights in es6 file extentions
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+"diable folding in vim markdown plugin
+let g:vim_markdown_folding_disabled=1
 
