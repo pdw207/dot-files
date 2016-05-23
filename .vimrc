@@ -8,16 +8,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" directory view
-Plugin 'scrooloose/nerdtree'
-
-" key mappings
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'mileszs/ack.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'Emmet.vim'
-
 " color
 Plugin 'nanotech/jellybeans.vim'
 
@@ -26,16 +16,22 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-haml'
 Plugin 'darthdeus/vim-emblem'
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nono/vim-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/syntastic'
 
-" navigate files via ctrl + p
+"Funtionality
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mileszs/ack.vim'
+Plugin 'Emmet.vim'
+
+"File Navigation
+Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 
 " autocomplete
@@ -44,8 +40,11 @@ Plugin 'tpope/vim-endwise'
 
 "Git Blame
 Plugin 'vim-fugitive'
+
 call vundle#end()
+
 " ---------------------------
+"
 filetype plugin indent on
 
 " Trim training whitespace when saving a file
@@ -89,10 +88,6 @@ nnoremap <silent> <leader>n :NERDTree<CR>
 "Allow ctr + c copy
 map <C-c> "+y<CR>
 
-" RSpec.vim mappings
-let g:rspec_runner = "os_x_iterm"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 " make splits more natural
 set splitbelow
 set splitright
@@ -123,15 +118,18 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set backupskip=/tmp/*,/private/tmp/*
 
+" setup rbenv via brew
+eval "$(rbenv init -)"
+
 " File mutations
 match ErrorMsg '\s\+$'
 
 " dont map
 inoremap jk <Esc>
-
-
+let g:syntastic_javascript_jshint_args = '--config /Users/paulwilson/.jshintrc'
 "fix issue with syntax highlights in es6 file extentions
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
 "diable folding in vim markdown plugin
 let g:vim_markdown_folding_disabled=1
 

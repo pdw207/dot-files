@@ -24,6 +24,10 @@ alias m="be rake db:migrate && rake db:rollback && rake db:migrate"
 alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
 alias tree="find . -type d | sed -e 's/[^-][^\/]*\//  |/g' -e 's/|\([^ ]\)/|-\1/'"
 alias curlpretty="echo curl http://0.0.0.0:4200/$1 | python -m json.tool"
+alias gitx="open ~/Applications/GitX.app"
+alias gru="git remote update"
+alias co="checkout"
+freckle() { git log --all --since="$*" --pretty=format:"%h%x09%an%x09%ad%x09%s" --date-order --author="Paul"; }
 
 function supersub {
   ack -l "$1" "$3" | xargs perl -p -i -e "s/$1/$2/g"
@@ -71,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:$PATH"
+export PATH="/bin:/user/bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -89,3 +93,4 @@ export PATH="/usr/local/bin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export PATH="$HOME/.rbenv/bin:$PATH"
