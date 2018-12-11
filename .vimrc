@@ -12,16 +12,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 
 " syntax highlighting
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
 Plugin 'darthdeus/vim-emblem'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nono/vim-handlebars'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
 
 "Funtionality
 Plugin 'terryma/vim-multiple-cursors'
@@ -118,15 +116,12 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set backupskip=/tmp/*,/private/tmp/*
 
-" setup rbenv via brew
-eval "$(rbenv init -)"
-
 " File mutations
 match ErrorMsg '\s\+$'
 
 " dont map
 inoremap jk <Esc>
-let g:syntastic_javascript_jshint_args = '--config /Users/paulwilson/.jshintrc'
+
 "fix issue with syntax highlights in es6 file extentions
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
